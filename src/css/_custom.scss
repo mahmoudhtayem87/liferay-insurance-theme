@@ -1,0 +1,104 @@
+    @import 'components/breadcrumb';
+    @import 'components/color';
+    @import 'components/group-item';
+    @import 'components/info-panel';
+    @import 'components/navbars';
+    @import 'components/sidebar';
+    @import 'components/splitter';
+    @import 'components/table';
+    @import 'components/widget';
+    @import 'portlet/portlet';
+    @import 'portlet/portlet_decorators';
+    @import 'portlet/portlet_hello_world';
+    @import 'custom_properties';
+    .btn-group+.info-panel {
+        @include media-breakpoint-up(sm) {
+            top: auto;
+        }
+    }
+    
+    #footer {
+        background-color: $complementary-color;
+        color: #fff;
+        margin-top: 1rem;
+        >.container {
+            padding-bottom: 3rem;
+            padding-top: 3rem;
+        }
+    }
+    
+    #wrapper {
+        @import 'customfiles/scss/style.scss';
+        .portlet-content {
+            padding: 0!important;
+        }
+        .single_service {
+            padding: 40px 30px;
+        }
+        .portlet {
+            margin-bottom: 0!important;
+        }
+        .section_title {
+            font-size: 18px;
+            font-weight: 400;
+            text-transform: uppercase!important;
+            color: #1F1F1F;
+            overflow: hidden!important;
+        }
+        .section_title::after {
+            content: "";
+            display: block;
+            padding-top: 15px;
+            border-bottom: 1px solid #5DB2FF;
+            width: 1000px;
+        }
+        .lfr-pagination-buttons a {
+            border-color: var(--light);
+            background: var(--secondary)!important;
+            color: white!important;
+            min-width: 8rem;
+            font-weight: 900;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .lfr-pagination-buttons .disabled a {
+            border-color: var(--light);
+            background: var(--gray-400)!important;
+            color: var( --dark)!important;
+            min-width: 8rem;
+            font-weight: 900;
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .bg-secondary {
+            background-color: #F5FBFF!important;
+        }
+        .header-area .submenu {
+            top: 100%!important;
+            width: 300px!important;
+            background-color: var(--light)!important;
+        }
+        .submenu .active {
+            border-left: solid!important;
+            border-color: var(--primary)!important;
+            border-width: thin!important;
+        }
+        .welcome_docmed_area {
+            padding-top: 120px;
+            padding-bottom: 220px;
+        }
+        .welcome_docmed_area .welcome_docmed_info {
+            padding-left: 90px;
+        }
+        .bg-green {
+            background-color: #06877c!important;
+            color: white!important;
+        }
+        .personalBar a {
+            margin: 0!important;
+        }
+    }
+    
+    .commerce {
+        @import './customfiles/scss/css/minium/minium.scss';
+    }

@@ -1,0 +1,133 @@
+.commerce-cart {
+	$minicart-width: 500px;
+
+	@function getOpeningTranslation($direction) {
+		@return translateX(if($direction == left, -1, 1) *
+		($minicart-width + $liferay-sidebars-width));
+	}
+
+
+	background-color: $color-bg;
+	box-shadow: -20px 0 40px $color-shadow;
+	display: flex;
+	flex-direction: column;
+	max-width: 500px;
+	position: absolute;
+	right: 0;
+	top: 100%;
+	transition:
+		box-shadow $transition,
+		transform $transition;
+	height: calc(100vh - #{$frame-size});
+	width: $minicart-width;
+	z-index: 1140;
+
+	@media screen and (max-width: $bp-xsmall) {
+		height: calc(100vh - #{$frame-size-small});
+	}
+
+	.has-control-menu.signed-in & {
+		height: calc(100vh - #{$liferay-topbar-size + $frame-size});
+
+		@media screen and (max-width: $bp-xsmall) {
+			height: calc(100vh - #{$liferay-topbar-size-small + $frame-size-small});
+		}
+	}
+
+	&:not(.is-open) {
+		box-shadow: 0 0 0 $color-shadow;
+		transform: getOpeningTranslation(right);
+	}
+
+	.rtl & {
+		left: 0;
+	}
+
+	.rtl &:not(.is-open) {
+		transform: getOpeningTranslation(left);
+	}
+
+	&__container {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+	}
+
+	&__top {
+		align-items: center;
+		background-color: $color-bg-alt;
+		color: $color-fg-alt;
+		display: flex;
+		font-size: 15px;
+		justify-content: space-between;
+		min-height: 50px;
+		padding: 10px;
+	}
+
+	&__content {
+		flex-grow: 1;
+		overflow: auto;
+	}
+
+	&__footer {
+		background-color: $color-bg-dark;
+
+		.commerce-button--block {
+			font-size: 1em;
+			text-transform: capitalize;
+		}
+	}
+
+	&__totals {
+		align-items: baseline;
+		color: $color-bg;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0;
+		padding: 20px 35px;
+		text-align: right;
+
+		dt {
+			flex: 1 1 60%;
+			font-weight: normal;
+			margin: 0;
+			opacity: 0.75;
+			text-transform: capitalize;
+
+			big {
+				font-weight: bold;
+			}
+		}
+
+		dd {
+			flex: 1 1 10%;
+			font-size: 12px;
+			margin-bottom: 0;
+
+			big {
+				font-size: 18px;
+				font-weight: bold;
+			}
+		}
+
+		.final-total {
+			margin-top: 15px;
+		}
+	}
+
+	&__close {
+		background-color: $color-bg-alt;
+		bottom: 100%;
+		color: $color-fg-alt;
+		position: absolute;
+		right: 0;
+	}
+}
+
+.mini-cart-wrapper {
+	position: relative;
+}
